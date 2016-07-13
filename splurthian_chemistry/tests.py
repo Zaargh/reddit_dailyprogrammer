@@ -1,6 +1,6 @@
 import unittest
 
-from splurth import check_element_symbol
+from splurthian_chemistry.splurth import check_element_symbol, list_all_symbols_for_element
 
 
 class SplurthianElementSymbolTest(unittest.TestCase):
@@ -15,6 +15,9 @@ class SplurthianElementSymbolTest(unittest.TestCase):
         self.assertFalse(check_element_symbol('Melintzum', 'Nn'))
         self.assertFalse(check_element_symbol('Tullium', 'Ty'))
 
+    def test_list_all_valid_symbols(self):
+        self.assertCountEqual(list_all_symbols_for_element('Aaaaaba'), ['Aa', 'Ab', 'Ba'])
+        self.assertCountEqual(list_all_symbols_for_element('Aaaa'), ['Aa'])
 
 if __name__ == '__main__':
     unittest.main()
