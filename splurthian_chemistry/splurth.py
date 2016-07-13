@@ -10,7 +10,7 @@ def check_element_symbol(name, symbol):
     :return: True if symbol is valid, False otherwise
     """
     # valid symbol has exactly 2 chars
-    if not len(symbol) == 2:
+    if not len(symbol) == 2 or not symbol.istitle():
         return False
 
     symbol_in_name_re = re.compile(r'.*{0}.*{1}.*'.format(symbol[0], symbol[1]), re.I)

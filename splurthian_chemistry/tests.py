@@ -15,6 +15,11 @@ class SplurthianElementSymbolTest(unittest.TestCase):
         self.assertFalse(check_element_symbol('Melintzum', 'Nn'))
         self.assertFalse(check_element_symbol('Tullium', 'Ty'))
 
+    def test_invalid_case_symbols(self):
+        self.assertFalse(check_element_symbol('Spenglerium', 'ee'))
+        self.assertFalse(check_element_symbol('Zeddemorium', 'zR'))
+        self.assertFalse(check_element_symbol('Venkmine', 'KN'))
+
     def test_list_all_valid_symbols(self):
         self.assertCountEqual(list_all_symbols_for_element('Aaaaaba'), ['Aa', 'Ab', 'Ba'])
         self.assertCountEqual(list_all_symbols_for_element('Aaaa'), ['Aa'])
