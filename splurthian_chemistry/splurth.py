@@ -35,3 +35,11 @@ def list_all_symbols_for_element(name):
         for pair in itertools.product(name[:i], name[i:]):
             result.add(''.join(pair).capitalize())
     return result
+
+
+def find_first_alphabetical_valid_symbol(name):
+    return sorted(list_all_symbols_for_element(name))[0]
+
+
+def count_all_symbols_for_element(name):
+    return len(list_all_symbols_for_element(name))
