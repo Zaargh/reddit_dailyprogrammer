@@ -43,3 +43,14 @@ def find_first_alphabetical_valid_symbol(name):
 
 def count_all_symbols_for_element(name):
     return len(list_all_symbols_for_element(name))
+
+
+def count_blurthian_symbols(name):
+    if len(name) < 2:
+        raise ValueError('Element name must be at least 2 chars long')
+
+    result = set()
+    for i, _ in enumerate(name, start=1):
+        possibilities = [''.join(p).capitalize() for p in itertools.combinations(name, i)]
+        result.update(possibilities)
+    return len(result)

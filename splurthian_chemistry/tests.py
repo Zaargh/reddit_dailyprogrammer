@@ -32,5 +32,11 @@ class SplurthianElementSymbolTest(unittest.TestCase):
         self.assertEqual(count_all_symbols_for_element('Zuulon'), 11)
 
 
+class BlurthianSymbolTest(unittest.TestCase):
+
+    def test_count_blurthian_symbols(self):
+        self.assertEqual(count_blurthian_symbols('Zuulon'), 47)
+
+
 if __name__ == '__main__':
     unittest.main()
