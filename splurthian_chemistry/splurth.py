@@ -1,5 +1,6 @@
 import re
 import itertools
+import operator
 
 
 def check_element_symbol(name, symbol):
@@ -60,3 +61,9 @@ def symbol_score(name, symbol):
     first_score = name.lower().index(symbol.lower()[0])
     second_score = name.lower()[first_score+1:].index(symbol.lower()[1]) + first_score + 1
     return first_score, second_score
+
+
+def symbols_sorted_by_score(name):
+    symbols = list_all_symbols_for_element(name)
+    symbols_rated = [(s, symbol_score(name, s)) for s in symbols]
+    return [s[0] for s in sorted(symbols_rated, key=operator.itemgetter(1))]

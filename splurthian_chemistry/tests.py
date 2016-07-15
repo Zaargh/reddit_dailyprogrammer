@@ -35,7 +35,10 @@ class SplurthianElementSymbolTest(unittest.TestCase):
         self.assertEqual(symbol_score('Spenglerium', 'Ee'), (2, 6))
         self.assertEqual(symbol_score('Zeddemorium', 'Zr'), (0, 7))
         self.assertEqual(symbol_score('Venkmine', 'Kn'),  (3, 6))
-    
+
+    def test_symbol_sorting(self):
+        self.assertEqual(symbols_sorted_by_score('Neon'), ['Ne', 'No', 'Nn', 'Eo', 'En', 'On'])
+
 
 class BlurthianSymbolTest(unittest.TestCase):
 
