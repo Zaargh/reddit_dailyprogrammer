@@ -31,6 +31,11 @@ class SplurthianElementSymbolTest(unittest.TestCase):
     def test_count_valid_symbols(self):
         self.assertEqual(count_all_symbols_for_element('Zuulon'), 11)
 
+    def test_symbol_scores(self):
+        self.assertEqual(symbol_score('Spenglerium', 'Ee'), (2, 6))
+        self.assertEqual(symbol_score('Zeddemorium', 'Zr'), (0, 7))
+        self.assertEqual(symbol_score('Venkmine', 'Kn'),  (3, 6))
+    
 
 class BlurthianSymbolTest(unittest.TestCase):
 

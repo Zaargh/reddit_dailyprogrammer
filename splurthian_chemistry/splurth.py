@@ -54,3 +54,9 @@ def count_blurthian_symbols(name):
         possibilities = [''.join(p).capitalize() for p in itertools.combinations(name, i)]
         result.update(possibilities)
     return len(result)
+
+
+def symbol_score(name, symbol):
+    first_score = name.lower().index(symbol.lower()[0])
+    second_score = name.lower()[first_score+1:].index(symbol.lower()[1]) + first_score + 1
+    return first_score, second_score
