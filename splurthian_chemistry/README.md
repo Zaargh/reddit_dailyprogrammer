@@ -1,1 +1,1 @@
-Planned for solutions to challenges #275 Splurthian Chemistry 101 and #276 Splurthian Chemistry 102
+Solutions for challenges: [#275 Splurthian Chemistry 101](https://www.reddit.com/r/dailyprogrammer/comments/4savyr/20160711_challenge_275_easy_splurthian_chemistry/) and [#276 Splurthian Chemistry 102](https://www.reddit.com/r/dailyprogrammer/comments/4so25w/20160713_challenge_275_intermediate_splurthian/)
