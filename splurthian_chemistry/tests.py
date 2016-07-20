@@ -31,6 +31,30 @@ class SplurthianElementSymbolTest(unittest.TestCase):
     def test_count_valid_symbols(self):
         self.assertEqual(count_all_symbols_for_element('Zuulon'), 11)
 
+    def test_symbol_scores(self):
+        self.assertEqual(symbol_score('Spenglerium', 'Ee'), (2, 6))
+        self.assertEqual(symbol_score('Zeddemorium', 'Zr'), (0, 7))
+        self.assertEqual(symbol_score('Venkmine', 'Kn'),  (3, 6))
+
+    def test_symbol_sorting(self):
+        self.assertEqual(symbols_sorted_by_score('Neon'), ['Ne', 'No', 'Nn', 'Eo', 'En', 'On'])
+
+
+class SplurthianSymbolGeneratorTest(unittest.TestCase):
+
+    def test_valid_symbols_are_assigned(self):
+        test_filename = 'splurthian_elements.txt'
+        elements_table = match_splurthian_symbols_to_element_list(test_filename)
+        self.assertEqual(elements_table['Protactinium'], 'Pt')
+        self.assertEqual(elements_table['Californium'], 'Cf')
+        self.assertEqual(elements_table['Lionoium'], 'Iu')
+
+
+class BlurthianSymbolTest(unittest.TestCase):
+
+    def test_count_blurthian_symbols(self):
+        self.assertEqual(count_blurthian_symbols('Zuulon'), 47)
+
 
 if __name__ == '__main__':
     unittest.main()
