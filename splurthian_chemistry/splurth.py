@@ -1,6 +1,7 @@
 import re
 import itertools
 import operator
+import collections
 
 
 def check_element_symbol(name, symbol):
@@ -67,3 +68,27 @@ def symbols_sorted_by_score(name):
     symbols = list_all_symbols_for_element(name)
     symbols_rated = [(s, symbol_score(name, s)) for s in symbols]
     return [s[0] for s in sorted(symbols_rated, key=operator.itemgetter(1))]
+
+
+def match_splurthian_symbols_to_element_list(fname):
+    """
+    Assigns symbols to list of elements, according to rules in Splurthian Chemistry 102 challenge.
+    If valid symbol cannot be assigned for an element None is assigned.
+    :return: collections.OrderedDict {name: symbol}.
+    """
+
+    with open(fname, 'r') as f:
+        elements = [name.strip() for name in f.readlines()]
+    result = collections.OrderedDict()
+    used_symbols = set()
+
+    for name in elements:
+        proposals = symbols_sorted_by_score(name)
+        for p in proposals:
+            if p not in used_symbols:
+                result[name] = p
+                used_symbols.add(p)
+                break
+        else:
+            result[name] = None
+    return result
